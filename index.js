@@ -1,15 +1,9 @@
 import express from 'express';
+import path from 'path';
 
 const app = express();
 
-
-app.get('/', (req, res) => {
-  res.send('Hello world!');
-});
-
-app.get('/about', (req, res) => {
-  res.send('<h1>About us</h1>');
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
